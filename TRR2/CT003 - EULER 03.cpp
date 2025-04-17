@@ -50,7 +50,7 @@ void euler(int v){
 	}
 }
 int main(){
-    //file();
+    	file();
 	cin>>t>>n;
 	if(t==2) cin>>u;
 	int k, l;
