@@ -1,12 +1,11 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int n, m;
+int n, m, s;
+int vs[1005];
 vector<pair<int,int>> adj[1005];
-bool vs[1005];
-
 struct canh{
-	int x, y, w;
+	int u, v, w;
 };
 
 void prim(int u){
@@ -34,19 +33,21 @@ void prim(int u){
 	}
 	cout<<d<<endl;
 	for(auto e: mst){
-		cout<<min(e.x, e.y)<<" "<<max(e.x, e.y)<<" "<<e.w<<endl;
-	}
-}
-void nhap(){
-	cin>>n>>m;
-	int x, y, w;
-	while(m--){
-		cin>>x>>y>>w;
-		adj[x].push_back({y, w});
-		adj[y].push_back({x, w});
+		cout<<min(e.u, e.v)<<" "<<max(e.u, e.v)<<" "<<e.w<<endl;
 	}
 }
 int main(){
-	nhap();
-	prim(5);
+	int t; cin>>t;
+	while(t--){
+		cin>>n>>m>>s;
+		int x, y, w;
+		while(m--){
+			cin>>x>>y>>w;
+			adj[x].push_back({y, w});
+			adj[y].push_back({x, w});
+		}
+		prim(s);
+		memset(vs, false, sizeof(vs));
+		for(int i=1; i<=n; i++) adj[i].clear();
+	}
 }
