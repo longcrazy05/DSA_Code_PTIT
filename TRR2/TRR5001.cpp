@@ -30,6 +30,7 @@ void dijkstra(int s){
 	}
 }
 int main(){
+	file();
 	cin>>n>>s>>t;
 	int w;
 	for(int i=1; i<=n; i++){
