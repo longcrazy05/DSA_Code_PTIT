@@ -32,6 +32,7 @@ bool bmf(int s){
 	return true;
 }
 int main(){
+	file();
 	cin>>n>>s>>t;
 	int w;
 	for(int i=1; i<=n; i++){
