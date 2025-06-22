@@ -1,26 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int t, n, pre[105];
+int n;
 set<int> adj[105], dsk[105], rev[105];
 bool vs[105];
 
 void file(){
-	freopen("TK.INP","r",stdin);
-	freopen("TK.OUT","w",stdout);
+	freopen("TK.INP","r", stdin);
+	freopen("TK.OUT","w", stdout);
 }
 
 int d=0;
 void dfs(int u, set<int> adj[]){
-	vs[u]=true;
+	vs[u] = true;
 	d++;
-	for(int v:adj[u]){
+	for(int v: adj[u]){
 		if(!vs[v]) dfs(v, adj);
 	}
 }
 
 int main(){
-	file();
+    file();
 	cin>>n;
 	int x;
 	for(int i=1; i<=n; i++){
@@ -35,25 +35,20 @@ int main(){
 			}
 		}
 	}
-	int ok=0;
 	dfs(1, adj);
 	if(d==n){
-		d=0;
-		memset(vs, false, sizeof(vs));
+		d=0; 
+		memset(vs, false, sizeof vs);
 		dfs(1, rev);
 		if(d==n){
-			cout<<1;
-			ok=1;
+			cout<<1; return 0;
 		}
 	}
-	if(ok==0) {
-		d=0;
-		memset(vs, false, sizeof(vs));
-		dfs(1, dsk);
-		if(d==n){
-			cout<<2;
-			ok=1;
-		}
+	d=0;
+	memset(vs, false, sizeof vs);
+	dfs(1, dsk);
+	if(d==n){
+		cout<<2; return 0;
 	}
-	if(ok ==0) cout<<0;
+	cout<<0;
 }
